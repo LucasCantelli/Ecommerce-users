@@ -21,7 +21,9 @@ public class UserServviceImpl implements UserService {
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         UserEntity userEntity = modelMapper.map(userDTO, UserEntity.class);
 
-        userRepository.save(userEntity);
-        return null;
+         userRepository.save(userEntity);
+
+        return modelMapper.map(userEntity, UserDTO.class);
+
     }
 }
